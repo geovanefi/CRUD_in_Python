@@ -2,7 +2,8 @@
 
 import json, os
 
-def add_contato():
+# Adicona contatos
+def add_contatos():
 
     nome = input("nome do contato: ")
     telefone = input("numero do telefone: ")
@@ -31,4 +32,29 @@ def add_contato():
         print("Dados inseridos com SUCESSO")
 
 
-add_contato()
+def ver_contatos():
+
+    with open("agenda.json", "r") as visualizar:
+        itensdata = json.load(visualizar)
+
+        for i, m in itensdata.items():
+            for x, n in m.items():
+                print(x, n)
+            print("\n")
+
+def delete_contatos():
+    nome = input("nome do contato: ")
+
+    with open("agenda.json", "r") as busca_itens:
+        itensdata = json.load(busca_itens)
+
+        if nome in itensdata:
+            itensdata.pop(nome)
+
+            with open("agenda.json", "w") as delete:
+                itensdata1 = json.dump(itensdata, delete)
+                print("Contato deletado com sucesso")
+
+ver_contatos()
+
+# https://www.youtube.com/watch?v=gyqGt20hiI8
