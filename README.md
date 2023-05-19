@@ -41,6 +41,29 @@ O programa oferece as seguintes funcionalidades:
 
 Contribuições são bem-vindas! Sinta-se à vontade para fazer sugestões, relatar problemas ou enviar pull requests para aprimorar este programa.
 
+### Sugestões para melhorias
+
+
+- Validação de entrada: Adicione validações de entrada para garantir que os campos obrigatórios sejam preenchidos adequadamente. Por exemplo, verifique se o nome do contato não está em branco antes de adicionar ou atualizar um contato.
+
+- Tratamento de exceções: Adicione tratamento de exceções para lidar com possíveis erros durante a leitura, gravação e manipulação do arquivo JSON. Isso ajudará a evitar que o programa seja interrompido abruptamente em caso de problemas.
+
+- Organização do código: Considere dividir o código em funções mais específicas e bem definidas para facilitar a leitura, manutenção e reutilização do código. Isso também ajudará a separar as responsabilidades de cada função.
+
+- Melhorias na apresentação dos dados: Explore diferentes formas de exibir as informações dos contatos, como formatar a exibição dos números de telefone ou datas de uma maneira mais amigável.
+
+- Opções adicionais: Se desejar expandir a funcionalidade do programa, você pode considerar adicionar recursos como pesquisa avançada por critérios específicos, ordenação dos contatos, filtragem por campos, entre outros.
+
+- Testes unitários: Implemente testes unitários para verificar se as funções do programa estão funcionando corretamente. Isso ajudará a identificar e corrigir erros mais rapidamente.
+
+Essas são apenas algumas sugestões para melhorar o código existente. Você pode adaptar e implementar as melhorias de acordo com suas necessidades e preferências.
+
+
+
+
+
+
+
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
