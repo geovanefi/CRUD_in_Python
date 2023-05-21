@@ -1,7 +1,8 @@
-#CRUD Atividade Ativa
-
 import json, os
 
+print("-----------------------------------------------")
+print("               SISTEMA DE CADASTRO             ")
+print("-----------------------------------------------")
 
 def adicionar_contato():
 
@@ -29,7 +30,7 @@ def adicionar_contato():
 
     with open("agenda.json", "w") as converte_json:
         json.dump(itensdata, converte_json) #converter python para json
-        print("Dados inseridos com SUCESSO")
+        print("\nDados inseridos com SUCESSO")
 
 
 def listar_contato():
@@ -53,7 +54,7 @@ def deletar_contato():
 
             with open("agenda.json", "w") as delete:
                 itensdata1 = json.dump(itensdata, delete)
-                print("Contato deletado com sucesso")
+                print("\nContato deletado com sucesso")
 
 def atualizar_contato():
     nome = input("nome do contato: ")
@@ -78,7 +79,7 @@ def atualizar_contato():
             itensdata[nome] = dicionario
             with open("agenda.json", "w") as insere_contato:
                 json.dump(itensdata, insere_contato)
-                print("Contato inserido com sucesso!")
+                print("\nContato inserido com sucesso!")
 
 def pesquisar_contato():
     nome = input("nome do contato: ")
@@ -87,40 +88,71 @@ def pesquisar_contato():
         if nome in itensdata:
             print(itensdata[nome])
         else:
-            print("Contato não encontrado")
+            print("\nContato não encontrado")
             
 def pesquisar_todos_contatos():
     with open("agenda.json", "r") as busca_itens:
         itensdata = json.load(busca_itens)
         print(itensdata)
 
+def gerar_relatorio():
+    with open("agenda.json", "r") as relatorio:
+        contatos = json.load(relatorio)
+        
+        if contatos:
+            print("=== RELATÓRIO DE CONTATOS ===\n")
+            print("{:<15} {:<25} {:<15} {:<15}".format("Nome", "E-mail", "Twitter", "Instagram"))
+            print("-" * 70)
+            
+            for nome, dados in contatos.items():
+                nome = dados["Nome: "]
+                email = dados["Email: "]
+                twitter = dados["Twitter: "]
+                instagram = dados["Instagram: "]
+                
+                print("{:<15} {:<25} {:<15} {:<15}".format(nome, email, twitter, instagram))
+            
+            print("-" * 70)
+        else:
+            print("Não há contatos cadastrados.")
+
 
 
 def menu():
     print("\n ====> MENU INICIAR <=====")
-    print("\n 1. Adicionar Contato")
-    print("\n 2. Listar Contatos")
-    print("\n 3. Excluir Contato")
-    print("\n 4. Atualizar Contato")
-    print("\n 5. Pesquisar Contato")
-    print("\n 6. Pesquisar Todos Contatos")
-    print("\n 7. Sair")
-    print("====> digite o numero correspondente. <=====\n")
+    print("\n 1 = Adicionar Contato")
+    print("\n 2 = Listar Contatos")
+    print("\n 3 = Excluir Contato")
+    print("\n 4 = Atualizar Contato")
+    print("\n 5 = Pesquisar Contato")
+    print("\n 6 = Pesquisar Todos Contatos")
+    print("\n 7 = Gerar Relatório")
+    print("\n 8 = Sair")
+    print("\n====> digite o numero correspondente. <=====\n")
 
     selecao = int(input("Escolha a opção: "))
 
     if selecao == 1:
         adicionar_contato()
+        menu()
     elif selecao == 2:
         listar_contato()
+        menu()
     elif selecao == 3:
         deletar_contato()
+        menu()
     elif selecao == 4:
         atualizar_contato()
+        menu()
     elif selecao == 5:
         pesquisar_contato()
+        menu()
     elif selecao == 6:
         pesquisar_todos_contatos()
+        menu()
+    elif selecao == 7:
+        gerar_relatorio()
+        menu()
     else:
         print("Saindo do programa... OBRIGADO!")
 
