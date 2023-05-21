@@ -68,7 +68,7 @@ def deletar_contato():
 
             # Salva o dicionário atualizado no arquivo JSON
             with open("agenda.json", "w") as delete:
-                itensdata1 = json.dump(itensdata, delete)
+                json.dump(itensdata, delete)
                 print("\nContato deletado com sucesso")
 
 
